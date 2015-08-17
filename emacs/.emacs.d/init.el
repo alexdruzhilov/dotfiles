@@ -5,9 +5,9 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
-	     '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
+             '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
 
 (require 'cl)
 
@@ -17,8 +17,8 @@
 
 (defun my-packages-installed-p ()
   (loop for p in my-packages
-	when (not (package-installed-p p)) do (return nil)
-	finally (return t)))
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
 
 (unless (my-packages-installed-p)
   ;; check for new packages (package versions)
@@ -39,6 +39,15 @@
 
 ;; Always prefere utf-8 encoding
 (prefer-coding-system 'utf-8)
+
+;; Use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+
+;; Show whitespace characters (for whitespace-mode)
+(setq whitespace-style '(trailing tabs tab-mark))
+
+;; Enable whitespace mode globally
+(global-whitespace-mode 1)
 
 ;; Backups
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -68,24 +77,24 @@
 (use-package ido
   :ensure t
   :config (progn
-	    (ido-mode t)
-	    (ido-everywhere t)))
+            (ido-mode t)
+            (ido-everywhere t)))
 
 ;; ido-vertical-mode
 (use-package ido-vertical-mode
   :ensure t
   :config (progn
-	    (ido-vertical-mode t)
-	    (setq ido-vertical-show-count t
-		  ido-use-faces t)
-	    (set-face-attribute 'ido-vertical-first-match-face nil
-				:background nil
-				:foreground "orange")
-	    (set-face-attribute 'ido-vertical-only-match-face nil
-				:background nil
-				:foreground nil)
-	    (set-face-attribute 'ido-vertical-match-face nil
-				:foreground nil)))
+            (ido-vertical-mode t)
+            (setq ido-vertical-show-count t
+                  ido-use-faces t)
+            (set-face-attribute 'ido-vertical-first-match-face nil
+                                :background nil
+                                :foreground "orange")
+            (set-face-attribute 'ido-vertical-only-match-face nil
+                                :background nil
+                                :foreground nil)
+            (set-face-attribute 'ido-vertical-match-face nil
+                                :foreground nil)))
 
 ;; flx
 (use-package flx
@@ -114,8 +123,8 @@
 (use-package projectile
   :ensure t
   :config (progn
-	    (projectile-global-mode t)
-	    (setq projectile-require-project-root nil)))
+            (projectile-global-mode t)
+            (setq projectile-require-project-root nil)))
 
 ;; Perspective (work with multiple projects in different perspectives)
 (use-package perspective
@@ -129,9 +138,9 @@
 (use-package erlang
   :ensure
   :init (progn
-	  (setq load-path (cons "~/.kerl/installs/r15b02/lib/tools-2.6.8/emacs" load-path))
-	  (setq erlang-root-dir "~/.kerl/installs/r15b02")
-	  (setq exec-path (cons "~/.kerl/installs/r15b02/bin" exec-path))))
+          (setq load-path (cons "~/.kerl/installs/r15b02/lib/tools-2.6.8/emacs" load-path))
+          (setq erlang-root-dir "~/.kerl/installs/r15b02")
+          (setq exec-path (cons "~/.kerl/installs/r15b02/bin" exec-path))))
 
 ;; ------------------------------------------
 ;; Javascript
@@ -195,10 +204,10 @@
   :ensure t
   :defer t
   :init (progn
-	  (load-theme 'ample t t)
-	  (load-theme 'ample-flat t t)
-	  (load-theme 'ample-light t t)
-	  (enable-theme 'ample-flat)))
+          (load-theme 'ample t t)
+          (load-theme 'ample-flat t t)
+          (load-theme 'ample-light t t)
+          (enable-theme 'ample-flat)))
 
 ;; Moe-theme
 (use-package moe-theme
