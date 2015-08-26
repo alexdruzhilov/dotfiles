@@ -18,11 +18,21 @@ function emacs_config {
     echo "Emacs config initialized"
 }
 
+## Bash config
+function bash_config {
+    BASH_DIR=${CURRENT_DIR}/bash
+    ln -sf ${BASH_DIR}/.bash_aliases ~/.bash_aliases
+    source ~/.bashrc
+    echo "Bash config initialized"
+}
+
 case "$1" in
     vim) vim_config
         ;;
     emacs) emacs_config
         ;;
-    *) echo "Please specify config name (vim|emacs|tmux)"
+    bash) bash_config
+        ;;
+    *) echo "Please specify config name (vim|emacs|tmux|bash)"
         ;;
 esac
