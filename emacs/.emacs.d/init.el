@@ -28,7 +28,10 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)                ;; if you use :diminish
+(require 'bind-key)                ;; if you use any :bind variant
 
 ;; ------------------------------------------
 ;; Config
@@ -47,10 +50,10 @@
 (setq whitespace-style '(trailing tabs tab-mark))
 
 ;; Enable whitespace mode globally
-(global-whitespace-mode 1)
+(global-whitespace-mode 1)   
 
 ;; Backups
-(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-directory-alist `(("." . "~/.emacs.d/.saves")))
 (setq make-backup-files t            ; backup of a file the first time it is saved.
       backup-by-copying t            ; don't clobber symlinks
       version-control t              ; version numbers for backup files
@@ -122,9 +125,10 @@
 ;; Projectile (project management library)
 (use-package projectile
   :ensure t
-  :config (progn
-            (projectile-global-mode t)
-            (setq projectile-require-project-root nil)))
+  :init (setq projectile-require-project-root nil)
+  :config (projectile-global-mode)
+  :diminish projectile-mode)
+          
 
 ;; Perspective (work with multiple projects in different perspectives)
 (use-package perspective
@@ -212,3 +216,17 @@
 ;; Moe-theme
 (use-package moe-theme
   :ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c006bc787154c31d5c75e93a54657b4421e0b1a62516644bd25d954239bc9933" "e8a9dfa28c7c3ae126152210e3ccc3707eedae55bdc4b6d3e1bb3a85dfb4e670" "de8fa309eed1effea412533ca5d68ed33770bdf570dcaa458ec21eab219821fd" "74278d14b7d5cf691c4d846a4bbf6e62d32104986f104c1e61f718f9669ec04b" "d7088a7105aa09cc68e3d058f89917e07e0505e0f4ab522a6045ec8092d67c44" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
