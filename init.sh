@@ -26,6 +26,13 @@ function bash_config {
     echo "Bash config initialized"
 }
 
+## Git config
+function git_config {
+    GIT_DIR=${CURRENT_DIR}/git
+    ln -sf ${GIT_DIR}/.gitconfig ~/.gitconfig
+    echo "Git config initialized"
+}
+
 case "$1" in
     vim) vim_config
         ;;
@@ -33,6 +40,8 @@ case "$1" in
         ;;
     bash) bash_config
         ;;
-    *) echo "Please specify config name (vim|emacs|tmux|bash)"
+    git) git_config
+        ;;
+    *) echo "Please specify config name (vim|emacs|tmux|bash|git)"
         ;;
 esac
