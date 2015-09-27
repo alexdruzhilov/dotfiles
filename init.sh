@@ -33,6 +33,13 @@ function git_config {
     echo "Git config initialized"
 }
 
+## Tmux config
+function tmux_config {
+    GIT_DIR=${CURRENT_DIR}/tmux
+    ln -sf ${GIT_DIR}/.tmux.conf ~/.tmux.conf
+    echo "Tmux config initialized"
+}
+
 case "$1" in
     vim) vim_config
         ;;
@@ -41,6 +48,8 @@ case "$1" in
     bash) bash_config
         ;;
     git) git_config
+        ;;
+    tmux) tmux_config
         ;;
     *) echo "Please specify config name (vim|emacs|tmux|bash|git)"
         ;;
