@@ -26,6 +26,13 @@ function bash_config {
     echo "Bash config initialized"
 }
 
+## Zsh config
+function zsh_config {
+    ZSH_DIR=${CURRENT_DIR}/zsh
+    ln -sf ${ZSH_DIR}/.zshrc ~/.zshrc
+    echo "Zsh config initialized"
+}
+
 ## Git config
 function git_config {
     GIT_DIR=${CURRENT_DIR}/git
@@ -47,10 +54,12 @@ case "$1" in
         ;;
     bash) bash_config
         ;;
+    zsh) zsh_config
+        ;;
     git) git_config
         ;;
     tmux) tmux_config
         ;;
-    *) echo "Please specify config name (vim|emacs|tmux|bash|git)"
+    *) echo "Please specify config name (vim|emacs|tmux|bash|zsh|git)"
         ;;
 esac
