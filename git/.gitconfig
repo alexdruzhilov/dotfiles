@@ -11,3 +11,5 @@
     lg = !"git lg1"
 [merge]
 	tool = meld
+[rerere]
+	enabled = true
