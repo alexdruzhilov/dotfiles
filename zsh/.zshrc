@@ -85,4 +85,6 @@ export EDITOR='vim'
 #
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
+alias e="emacs -nw"
+alias ll="ls -al"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
