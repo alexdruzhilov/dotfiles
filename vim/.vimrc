@@ -21,10 +21,11 @@
 
     " General {
         Plugin 'flazz/vim-colorschemes'
+        Plugin 'vim-airline/vim-airline'
+        Plugin 'vim-airline/vim-airline-themes'
         Plugin 'altercation/vim-colors-solarized'
         Plugin 'scrooloose/nerdtree'
         Plugin 'jistr/vim-nerdtree-tabs'
-        Plugin 'bling/vim-airline'
         Plugin 'ctrlpvim/ctrlp.vim'              " Navigation by partial file name
         Plugin 'gcmt/wildfire.vim'               " Quick select closest text object by hitting <ENTER>
         Plugin 'mhinz/vim-signify'               " Shows VCS diff in sign column
@@ -33,6 +34,7 @@
         Plugin 'Lokaltog/vim-easymotion'         " Text navigation
         Plugin 'mileszs/ack.vim'                 " Search tool
         Plugin 'benmills/vimux'                  " Easily interact with tmux from vim
+        Plugin 'christoomey/vim-tmux-navigator'  " Seamless navigation between tmux panes and vim splits
     " }
 
     " Programming {
