@@ -55,10 +55,13 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="~/.local/bin:~/.linuxbrew/bin:~/.gradle/bin:~/.kerl/installs/17.5/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# Acvivate erlang
+. ~/.kerl/installs/17.5/activate
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -71,6 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 export EDITOR='vim'
+export TERM=xterm-256color
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -88,3 +92,5 @@ alias zshconfig="vim ~/.zshrc"
 alias e="emacs -nw"
 alias ll="ls -al"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
